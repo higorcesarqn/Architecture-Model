@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyVersion>3.1.2.0</AssemblyVersion>
+    <Version>3.1.2</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Everyone deserves to enjoy the benefits of functional programming. 
+
+
+The Tango provides a series of implementations to facilitate the use of functional programming concepts in C#. 
+
+In a certain way any C# developer work with some functional concepts like anonymous methods with lambda expressions and high order functions with Linq library, and so on. 
+
+C# is an amazing programming language and we as a dev, can improve it a lot more. In this library I implements some of the core functional concepts in order to enhances the experience of developers. 
+
+Tango is a set of powerful functional tools for your .NET C# application. With Tango you can write a clean functional code in C#. It can works with pipelines (method and operator), promises, optional and either type values. 
+
+Besides that, Tango provides an extension for IEnumerables, Options and Either with the Module namespace. Use popular methods like Map, Map2, Map3, Filter, Reduce, Fold, Scan and so on, always respecting lazy loadness. 
+
+Functional programming brings a lot of benefits to your application, and the do you know the best of all? 
+
+It makes development more fun! 
+
+Stop to struggle with your code and take it to dance a Tango!</Description>
+    <Copyright>2017 Gabriel Schade</Copyright>
+    <PackageLicenseUrl>https://github.com/gabrielschade/Tango/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://gabrielschade.github.io/tango</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/gabrielschade/Tango</RepositoryUrl>
+    <PackageTags>Functional Programming FSharp</PackageTags>
+    <PackageIconUrl>https://raw.githubusercontent.com/gabrielschade/Tango/f377270dda8f09820c06c0a10ecf99e963757a9a/icon64.png</PackageIconUrl>
+    <PackageReleaseNotes>Continuation Updates:
+
+- Create Merge method in order to merge two Continuation with different TFail and TSuccess types;
+- Create Finally Method in order to create a method that execute in both cases (Success and Fail);
+   - Similar to Then and Catch, this method is accessible as == operator
+- Create a brand new ContinuationModule
+   - Resolve, Reject and All methods;
+- Create a extension called Continuation.Linq
+   - AsContinuation&lt;TFail, TSuccess&gt; extension for any value or reference type;</PackageReleaseNotes>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\Tango.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+
+</Project>
