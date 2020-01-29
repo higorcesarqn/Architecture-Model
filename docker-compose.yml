@@ -4,16 +4,17 @@ services:
   database:
     image: kartoza/postgis:10.0-2.4
     restart: always
-  egl.sit.api:
-    image: ${DOCKER_REGISTRY-}eglsitapi
+    environment:
+      POSTGRES_USER : usuario
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB : db_teste
+  api:
+    image: ${DOCKER_REGISTRY-}api
     build:
       context: .
-      dockerfile: src/backend/Egl.Sit.Api/Dockerfile
+      dockerfile: src/backend/Api/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ConnectionStrings__SitDbConnection=Host=database;Port=5432;Database=sit3;Username=sit;Password=123456;Persist Security Info=True
-      - ConnectionStrings__EventStoreDbConnection=Host=database;Port=5432;Database=sit3;Username=sit;Password=123456;Persist Security Info=True
-    ports:
-      - "5001:80"
+      - ConnectionStrings__PostgreSqlDbConnection=Host=database;Port=5432;Database=db_teste;Username=usuario;Password=123456;Persist Security Info=True
     depends_on:
       - database

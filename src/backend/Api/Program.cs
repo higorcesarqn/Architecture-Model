@@ -40,7 +40,7 @@ namespace Api
               .CreateLogger();
 
             var seed = args.Any(x => x == SeedArgs);
-            var envSeed = Environment.GetEnvironmentVariable("SIT_SEED")?.ToLower();
+            var envSeed = Environment.GetEnvironmentVariable("SEED")?.ToLower();
             seed = seed || envSeed == "true";
 
             if (seed) args = args.Except(new[] { SeedArgs }).ToArray();

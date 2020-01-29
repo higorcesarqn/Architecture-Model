@@ -16,8 +16,8 @@ namespace Infra.CrossCutting.IoC
         {
 
             //Configurações Gerais.
-            //container.ConfigureCore();
-            container.ConfigureGeo();
+            container.ConfigureCore();
+            //container.ConfigureGeo();
 
            
             //Configurações dos modulos.

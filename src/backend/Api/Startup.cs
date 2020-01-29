@@ -132,8 +132,8 @@ namespace Api
         /// <param name="services"></param>
         public virtual void RegisterDbContexts(IServiceCollection services)
         {
-            services.ConfigurePostgreSQLDbContext(Configuration);
-            services.ConfigureEventoSourcingPostgreSqlDbContext("");
+            services.ConfigurePostgreSQLDbContext(Configuration.GetConnectionString("PostgreSqlDbConnection"));
+            //services.ConfigureEventoSourcingPostgreSqlDbContext("");
         }
 
         /// <summary>

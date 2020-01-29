@@ -21,8 +21,7 @@ namespace Migrate
         }
 
         /**
-        Add-Migration SitDbInit -context SitPostgreSQLContext -output Data/Migrations/SitDb
-        Add-Migration EventSourcingDbInit -context EventStoreEventSourcingContext -output Data/Migrations/EventSourcingDb
+        Add-Migration DbInit -context PostgreSQLContext -output Data/Migrations/PostgreSQL
         **/
         private static async Task EnsureDatabasesMigrated<TDbContext>(IServiceProvider services)
             where TDbContext : DbContext
@@ -33,15 +32,15 @@ namespace Migrate
             await context.Database.MigrateAsync();
         }
 
-        private static async Task EnsureSeedData<TSitContext>(IServiceProvider services)
-            where TSitContext : DbContext
+        private static async Task EnsureSeedData<TDbContext>(IServiceProvider services)
+            where TDbContext : DbContext
         {
             using var scope = services.GetRequiredService<IServiceScopeFactory>().CreateScope();
           
             //Identity Seed
             var userManager = scope.ServiceProvider.GetRequiredService<IUserManager>();
             var roleManager = scope.ServiceProvider.GetRequiredService<IRoleManager>();
-            var usuarioDbContext = scope.ServiceProvider.GetRequiredService<TSitContext>();
+            var usuarioDbContext = scope.ServiceProvider.GetRequiredService<TDbContext>();
             await IdentitySeed.EnsureSeedData(usuarioDbContext, userManager, roleManager);
         }
     }
