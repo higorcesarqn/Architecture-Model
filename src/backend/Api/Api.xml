@@ -1,0 +1,486 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api</name>
+    </assembly>
+    <members>
+        <member name="T:Api.Controllers.ApiController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.ApiController.#ctor(MediatR.INotificationHandler{Core.Notifications.DomainNotification})">
+            <summary>
+            
+            </summary>
+            <param name="notifications"></param>
+        </member>
+        <member name="M:Api.Controllers.ApiController.IsValidOperation">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.ApiController.ResponseBadRequest">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.ApiController.Response(Tango.Types.Option{System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.ApiController.Response(NetTopologySuite.Features.FeatureCollection)">
+            <summary>
+            
+            </summary>
+            <param name="featureCollection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.ApiController.ResponseCreated(System.String,Tango.Types.Option{System.Object})">
+            <summary>
+            
+            </summary>
+            <param name="uri"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.ApiController.Response``1(Core.PagedList.IPagedList{``0})">
+            <summary>
+            
+            </summary>
+            <param name="pagedList"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.ApiController.Response``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="enumerable"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Controllers.HomeController">
+            <summary>
+            redireciona para a pagina inicial do swagger ao iniciar a api.
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.HomeController.Index">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Infrastructure.ActionResults.InternalServerErrorObjectResult">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Infrastructure.ActionResults.InternalServerErrorObjectResult.#ctor(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:Api.Infrastructure.Filters.HttpGlobalExceptionFilter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Infrastructure.Filters.HttpGlobalExceptionFilter.#ctor(Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Logging.ILogger{Api.Infrastructure.Filters.HttpGlobalExceptionFilter})">
+            <summary>
+            
+            </summary>
+            <param name="env"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Api.Infrastructure.Filters.HttpGlobalExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Api.Infrastructure.Filters.JsonErrorResponse">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Infrastructure.Filters.JsonErrorResponse.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.Infrastructure.Filters.JsonErrorResponse.Messages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.Infrastructure.Filters.JsonErrorResponse.DeveloperMeesage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Api.Infrastructure.Filters.ValidateModelStateFilter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Infrastructure.Filters.ValidateModelStateFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Api.Infrastructure.Helpers.ConfigureElmah">
+            <summary>
+            extencions elmah
+            </summary>
+        </member>
+        <member name="M:Api.Infrastructure.Helpers.ConfigureElmah.AddElmah(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfigurationRoot)">
+            <summary>
+            Adicionar o Elmah na aplicação
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Infrastructure.Helpers.ConfigureSwaggerGenOptions">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Infrastructure.Helpers.ConfigureSwaggerGenOptions.#ctor(Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Api.Infrastructure.Helpers.ConfigureSwaggerGenOptions"/> class.
+            </summary>
+            <param name="provider">The <see cref="T:Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider">provider</see> used to generate Swagger documents.</param>
+        </member>
+        <member name="M:Api.Infrastructure.Helpers.ConfigureSwaggerGenOptions.Configure(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions)">
+            <inheritdoc />
+        </member>
+        <member name="T:Api.Infrastructure.Helpers.FluentValidationHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Infrastructure.Helpers.FluentValidationHelper.ConfigureFluentValidation(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="mvcBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Infrastructure.Helpers.SwaggerDefaultValues">
+             <summary>
+             Representa o filtro de operação Swagger / Swashbuckle usado para documentar o parâmetro implícito da versão da API.
+             </summary>
+            <remarks> Isso <see cref = "T:Swashbuckle.AspNetCore.SwaggerGen.IOperationFilter" /> é necessário apenas devido a erros no <see cref = "T:Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator" />.
+             Depois de corrigidas e publicadas, essa classe pode ser removida. </remarks>
+        </member>
+        <member name="M:Api.Infrastructure.Helpers.SwaggerDefaultValues.Apply(Microsoft.OpenApi.Models.OpenApiOperation,Swashbuckle.AspNetCore.SwaggerGen.OperationFilterContext)">
+            <summary>
+            Aplica o filtro à operação especificada usando o contexto fornecido.
+            </summary>
+            <param name="operation">The operation to apply the filter to.</param>
+            <param name="context">The current operation filter context.</param>
+        </member>
+        <member name="T:Api.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.Program.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Startup">
+            <summary>
+            Startup
+            </summary>
+        </member>
+        <member name="P:Api.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Startup.#ctor(Microsoft.Extensions.Hosting.IHostEnvironment)">
+            <summary>
+            
+            </summary>
+            <param name="env"></param>
+        </member>
+        <member name="M:Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Api.Startup.AutofacContainer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="builder"></param>
+        </member>
+        <member name="M:Api.Startup.RegisterDbContexts(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Api.Startup.UseAuthentication(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            
+            </summary>
+            <param name="app"></param>
+        </member>
+        <member name="M:Api.Startup.AddAuthentication(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.AspNetCore.Mvc.ApiExplorer.IApiVersionDescriptionProvider)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="provider"></param>
+        </member>
+        <member name="T:Api.V1.Autenticacao.AutenticacaoController">
+            <summary>
+            Controller de Autenticação
+            </summary>
+        </member>
+        <member name="M:Api.V1.Autenticacao.AutenticacaoController.#ctor(MediatR.INotificationHandler{Core.Notifications.DomainNotification})">
+            <summary>
+            
+            </summary>
+            <param name="notifications"></param>
+        </member>
+        <member name="M:Api.V1.Autenticacao.AutenticacaoController.Autenticacao(Infra.CrossCutting.Jwt.IJwtAutenticationService,Api.V1.Autenticacao.Models.AutenticacaoModel)">
+            <summary>
+            Autentica o usuário. [AllowAnonymous]
+            </summary>
+            <param name="jwtAutenticationService"></param>
+            <param name="login"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.V1.Autenticacao.Models.LoginModelValidation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Api.V1.Grupos.GruposController">
+            <summary>
+            Controller de Grupos
+            </summary>
+        </member>
+        <member name="M:Api.V1.Grupos.GruposController.#ctor(MediatR.INotificationHandler{Core.Notifications.DomainNotification})">
+            <summary>
+            
+            </summary>
+            <param name="notifications"></param>
+        </member>
+        <member name="M:Api.V1.Grupos.GruposController.Get(Domain.AggregatesModel.RoleAggregate.IRoleRepository,System.Int32,System.Int32)">
+            <summary>
+            Lista os Grupos. Roles [grupos-detalhar,grupos-editar]
+            </summary>
+            <param name="roleRepository"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.V1.Grupos.GruposController.Get(Domain.AggregatesModel.RoleAggregate.IRoleRepository,System.Guid)">
+            <summary>
+            Detalha um grupo
+            </summary>
+            <param name="roleRepository"></param>
+            <param name="idGrupo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.V1.Grupos.GruposController.Post(Core.Bus.IMediatorHandler,Api.V1.Grupos.Models.NovoGrupoModel)">
+            <summary>
+            Adiciona um novo grupo.
+            Roles: [grupos-adicionar]
+            </summary>
+            <param name="bus"></param>
+            <param name="novoGrupoModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.V1.Grupos.GruposController.Put(Core.Bus.IMediatorHandler,System.Guid,Api.V1.Grupos.Models.EditarGrupoModel)">
+            <summary>
+            Edita um Grupo.
+            Roles: [grupos-editar]
+            </summary>
+            <param name="bus"></param>
+            <param name="idGrupo"></param>
+            <param name="editarGrupoModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.V1.Grupos.Models.DetalhesGruposModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Api.V1.Grupos.Models.ListarUsuarioModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Api.V1.Permissoes.PermissaoController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.V1.Permissoes.PermissaoController.#ctor(MediatR.INotificationHandler{Core.Notifications.DomainNotification})">
+            <summary>
+            
+            </summary>
+            <param name="notifications"></param>
+        </member>
+        <member name="M:Api.V1.Permissoes.PermissaoController.Get(Domain.AggregatesModel.PermissionAggregate.IPermissionRepository)">
+            <summary>
+            Lista as permissões.
+            Roles: [grupos-adicionar, grupos-editar]
+            </summary>
+            <param name="permissionRepository"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.V1.Usuarios.Models.AdicionarUsuarioModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.V1.Usuarios.Models.AdicionarUsuarioModel.Nome">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.V1.Usuarios.Models.AdicionarUsuarioModel.Login">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.V1.Usuarios.Models.AdicionarUsuarioModel.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.V1.Usuarios.Models.AdicionarUsuarioModel.Senha">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.V1.Usuarios.Models.AdicionarUsuarioModel.ConfirmaSenha">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.V1.Usuarios.Models.AdicionarUsuarioModel.Grupos">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Api.V1.Usuarios.Models.UsuarioAdicionadoModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.V1.Usuarios.Models.UsuarioAdicionadoModel.Id">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.V1.Usuarios.Models.UsuarioAdicionadoModel.Login">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Api.V1.Usuarios.UsuariosController">
+            <summary>
+            Controller de usuários v1
+            </summary>
+        </member>
+        <member name="M:Api.V1.Usuarios.UsuariosController.#ctor(MediatR.INotificationHandler{Core.Notifications.DomainNotification})">
+            <summary>
+            
+            </summary>
+            <param name="notifications"></param>
+        </member>
+        <member name="M:Api.V1.Usuarios.UsuariosController.Get(Domain.AggregatesModel.UserAggregate.IUserRepository,System.Int32,System.Int32)">
+            <summary>
+            Lista os usuários cadastrados.
+            Roles: [usuarios-listar]
+            </summary>
+            <param name="userRepository"></param>
+            <param name="pageIndex"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.V1.Usuarios.UsuariosController.Get(Domain.AggregatesModel.UserAggregate.IUserRepository,System.Guid)">
+            <summary>
+            Detalha um usuário.
+            Roles: [usuarios-detalhar,usuarios-adicionar]
+            </summary>
+            <param name="userRepository"></param>
+            <param name="idUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.V1.Usuarios.UsuariosController.Post(Core.Bus.IMediatorHandler,Api.V1.Usuarios.Models.AdicionarUsuarioModel)">
+            <summary>
+            Adiciona um novo usuário.
+            Roles: [usuarios-adicionar]
+            </summary>  
+            <param name="bus"></param>
+            <param name="novoUsuarioModel"></param>
+            <returns>Id do Usuário Criado <see cref="T:Api.V1.Usuarios.Models.UsuarioAdicionadoModel"/></returns>
+        </member>
+        <member name="M:Api.V1.Usuarios.UsuariosController.Put(Core.Bus.IMediatorHandler,System.Guid,Api.V1.Usuarios.Models.EditarUsuarioModel)">
+            <summary>
+            Edita um Usuário.
+            Roles: [usuarios-editar]
+            </summary>
+            <param name="bus"></param>
+            <param name="idUsuario"></param>
+            <param name="editarUsuarioModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.V1.Usuarios.UsuariosController.PutPassword(Core.Bus.IMediatorHandler,System.Guid,Api.V1.Usuarios.Models.AlterarSenhaModel)">
+            <summary>
+            Altera a senha de um usuário.
+            Roles: [usuarios-editar]
+            </summary>
+            <param name="bus"></param>
+            <param name="idUsuario"></param>
+            <param name="alterarSenha"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
