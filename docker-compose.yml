@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB : db_teste
   mongo:
-    image: 'bitnami/mongodb:latest'
+    image: 'bitnami/mongodb:4.7-ol-7'
     ports:
       - "27017:27017"
   api:
