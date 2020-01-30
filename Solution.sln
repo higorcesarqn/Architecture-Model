@@ -79,6 +79,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infra.EntityFramework.Exten
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{AACF7B9F-4618-469E-A4BB-2D09DCF76810}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcing.Database.MongoDb", "src\backend\EventSourcing.Database.MongoDb\EventSourcing.Database.MongoDb.csproj", "{A3FAED27-1FF3-4E41-B333-771CB0A110E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -169,6 +171,10 @@ Global
 		{AACF7B9F-4618-469E-A4BB-2D09DCF76810}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AACF7B9F-4618-469E-A4BB-2D09DCF76810}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AACF7B9F-4618-469E-A4BB-2D09DCF76810}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3FAED27-1FF3-4E41-B333-771CB0A110E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3FAED27-1FF3-4E41-B333-771CB0A110E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3FAED27-1FF3-4E41-B333-771CB0A110E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3FAED27-1FF3-4E41-B333-771CB0A110E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -208,6 +214,7 @@ Global
 		{347909A9-7A7F-4AD1-928F-E083766E9E0B} = {7ADC06D7-6B81-470F-A138-855C8D816507}
 		{7E7E5B4C-BB95-4063-8689-D55BEDADBB83} = {3EFF6676-1D25-432A-9B22-E8A7177C0DB0}
 		{BA298E59-93B9-4659-89C6-F8ECE2921339} = {3F6B3D90-9BC4-4307-8240-ACC3E8CB062B}
+		{A3FAED27-1FF3-4E41-B333-771CB0A110E2} = {D8BFEED2-ECF7-43F8-9160-AA65A54A2B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59195E76-F87F-4592-AA14-4B69BE44F2A6}

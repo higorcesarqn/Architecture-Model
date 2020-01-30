@@ -49,6 +49,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AdministracaoUsuario.Domain\AdministracaoUsuario.Domain.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\EventSourcing.Database.MongoDb\EventSourcing.Database.MongoDb.csproj" />
     <ProjectReference Include="..\EventSourcing.EntityFramework.PostgreSQL\EventSourcing.EntityFramework.PostgreSQL.csproj" />
     <ProjectReference Include="..\Infra.CrossCutting.IoC\Infra.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\Infra.CrossCutting.Jwt\Infra.CrossCutting.Jwt.csproj" />

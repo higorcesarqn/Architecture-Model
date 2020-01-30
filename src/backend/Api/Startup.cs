@@ -3,7 +3,7 @@ using Api.Infrastructure.Helpers;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using ElmahCore.Mvc;
-using EventSourcing.EntityFramework.PostgreSQL;
+using EventSourcing.Database.MongoDb;
 using Infra.CrossCutting.Identity;
 using Infra.CrossCutting.IoC;
 using Infra.CrossCutting.Jwt;
@@ -103,6 +103,8 @@ namespace Api
             services.AddElmah(Configuration);
             services.AddSwagger();
 
+            services.ConfigureEventoSourcingMongoDb(Configuration);
+
             AddAuthentication(services);
             RegisterDbContexts(services);
 
@@ -121,9 +123,7 @@ namespace Api
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterServices<PostgreSqlContext>();
-            //Configuração de EventSourcing
-            //builder.ConfigureEventSourcing("");
-
+         
         }
      
         /// <summary>
