@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Core.Events;
+using MediatR.Pipeline;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EventSourcing.Database.MongoDb
@@ -9,6 +11,8 @@ namespace EventSourcing.Database.MongoDb
         {
             services.AddScoped<EventStoreMongoDbContext>();
             services.AddScoped<IEventStoreRepository, EventStoreRepository>();
+            services.AddScoped(typeof(IRequestPostProcessor<,>), typeof(EventoStoreEventoHandler<,>));
+            services.AddScoped<IEventStore, EventStore>();
             return services;
         }
     }

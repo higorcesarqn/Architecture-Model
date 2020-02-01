@@ -9,9 +9,15 @@ services:
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB : db_teste
   mongo:
-    image: 'bitnami/mongodb:4.7-ol-7'
+    image: 'mongo'
     ports:
       - "27017:27017"
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+  
   api:
     image: ${DOCKER_REGISTRY-}api
     build:
@@ -20,8 +26,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__PostgreSqlDbConnection=Host=database;Port=5432;Database=db_teste;Username=usuario;Password=123456;Persist Security Info=True
-      - MongoSettings_Connection=mongodb://mongo:27017
-      - MongoSettings_DatabaseName=EventSourcing
+      - MongoSettings__Connection=mongodb://mongo:27017
+      - MongoSettings__DatabaseName=EventSourcing
     depends_on:
       - database
       - mongo

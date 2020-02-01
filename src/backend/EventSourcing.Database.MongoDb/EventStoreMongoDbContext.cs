@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Driver.Core.Configuration;
 
 namespace EventSourcing.Database.MongoDb
 {
@@ -15,8 +16,11 @@ namespace EventSourcing.Database.MongoDb
         private readonly List<Func<Task>> _commands;
         public EventStoreMongoDbContext(IConfiguration configuration)
         {
-            MongoClient = new MongoClient(configuration["MongoSettings:Connection"]);
+            var settings = MongoClientSettings.FromUrl(new MongoUrl(configuration["MongoSettings:Connection"]));
+            settings.SslSettings = new SslSettings { EnabledSslProtocols = System.Security.Authentication.SslProtocols.Tls12 };
+            MongoClient = new MongoClient(settings);
             Database = MongoClient.GetDatabase(configuration["MongoSettings:DatabaseName"]);
+
             _commands = new List<Func<Task>>();
         }
 

@@ -1,7 +1,9 @@
 ﻿using Core.Events;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 
 namespace EventSourcing.Database.MongoDb
 {
@@ -15,13 +17,15 @@ namespace EventSourcing.Database.MongoDb
 
         public async Task Store(StoredEvent theEvent)
         {
-            var dbSet = _eventStoreMongoDbContext.GetCollection<StoredEvent>(typeof(StoredEvent).Name);
-             _eventStoreMongoDbContext.AddCommand(() => dbSet.InsertOneAsync(theEvent));
+            var storedEventMongoCollectionmongoCollection = _eventStoreMongoDbContext.GetCollection<StoredEvent>(typeof(StoredEvent).Name);
+             _eventStoreMongoDbContext.AddCommand(() => storedEventMongoCollectionmongoCollection.InsertOneAsync(theEvent));
+             await _eventStoreMongoDbContext.SaveChanges();
         }
 
-        public Task<IEnumerable<StoredEvent>> All(Guid aggregateId)
+        public async Task<IEnumerable<StoredEvent>> All(Guid aggregateId)
         {
-            throw new NotImplementedException();
+            var storedEventMongoCollectionmongoCollection = _eventStoreMongoDbContext.GetCollection<StoredEvent>(typeof(StoredEvent).Name);
+            return await storedEventMongoCollectionmongoCollection.Find( x => x.AggregateId == aggregateId).ToListAsync();
         }
     }
 }

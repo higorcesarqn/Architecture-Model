@@ -81,7 +81,7 @@ namespace Api.V1.Usuarios
         /// <param name="novoUsuarioModel"></param>
         /// <returns>Id do Usuário Criado <see cref="UsuarioAdicionadoModel"/></returns>
         [HttpPost]
-        [Authorize(Roles = "usuarios-adicionar")]
+        [Authorize(Roles = "usuarios-criar")]
         [ProducesResponseType(typeof(UsuarioAdicionadoModel), 201)]
         [ProducesResponseType(typeof(IDictionary<string, IEnumerable<string>>), 400)]
         [ProducesResponseType(typeof(JsonErrorResponse), 500)]
