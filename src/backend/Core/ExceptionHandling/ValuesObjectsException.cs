@@ -4,7 +4,7 @@ using Core.Models;
 namespace Core.ExceptionHandling
 {
     public class ValuesObjectsException<TValueObject> : Exception
-        where TValueObject : ValueObject<TValueObject>
+        where TValueObject : ValueObject
     {
 
         public ValuesObjectsException(TValueObject valueObject, string message) : base(message)

@@ -1,35 +1,58 @@
-﻿namespace Core.Models
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace Core.Models
 {
-    public abstract class ValueObject<T> where T : ValueObject<T> 
+    public abstract class ValueObject
     {
-        public override bool Equals(object obj)
+        protected static bool EqualOperator(ValueObject left, ValueObject right)
         {
-            return obj is T valueObject && EqualsCore(valueObject);
+            if (left is null ^ right is null)
+            {
+                return false;
+            }
+            return left is null || left.Equals(right);
         }
 
-        protected abstract bool EqualsCore(T other);
+        protected static bool NotEqualOperator(ValueObject left, ValueObject right)
+        {
+            return !(EqualOperator(left, right));
+        }
+
+        protected abstract IEnumerable<object> GetAtomicValues();
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            ValueObject other = (ValueObject)obj;
+            IEnumerator<object> thisValues = GetAtomicValues().GetEnumerator();
+            IEnumerator<object> otherValues = other.GetAtomicValues().GetEnumerator();
+            while (thisValues.MoveNext() && otherValues.MoveNext())
+            {
+                if (thisValues.Current is null ^
+                    otherValues.Current is null)
+                {
+                    return false;
+                }
+
+                if (thisValues.Current != null &&
+                    !thisValues.Current.Equals(otherValues.Current))
+                {
+                    return false;
+                }
+            }
+            return !thisValues.MoveNext() && !otherValues.MoveNext();
+        }
 
         public override int GetHashCode()
         {
-            return GetHashCodeCore();
-        }
-
-        protected abstract int GetHashCodeCore();
-
-        public static bool operator ==(ValueObject<T> a, ValueObject<T> b)
-        {
-            if (a is null && b is null)
-                return true;
-
-            if (a is null || b is null)
-                return false;
-
-            return a.Equals(b);
-        }
-
-        public static bool operator !=(ValueObject<T> a, ValueObject<T> b)
-        {
-            return !(a == b);
+            return GetAtomicValues()
+             .Select(x => x != null ? x.GetHashCode() : 0)
+             .Aggregate((x, y) => x ^ y);
         }
     }
 }

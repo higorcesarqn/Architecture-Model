@@ -1,9 +1,10 @@
 ﻿using Core.ExceptionHandling;
 using Core.Models;
+using System.Collections.Generic;
 
 namespace Domain.ValuesObjects
 {
-    public sealed class UserName : ValueObject<UserName>
+    public sealed class UserName : ValueObject
     {
         public static int MiniumLengh = 3;
 
@@ -17,16 +18,7 @@ namespace Domain.ValuesObjects
         }
 
         public string Value { get; private set; }
-        protected override bool EqualsCore(UserName other)
-        {
-            return other.Value == Value;
-        }
-
-        protected override int GetHashCodeCore()
-        {
-            return Value.GetHashCode() * 152;
-        }
-
+      
         public bool IsValid()
         {
             return !string.IsNullOrWhiteSpace(Value) && Value.Length >= MiniumLengh;
@@ -39,5 +31,10 @@ namespace Domain.ValuesObjects
             => value.Value;
 
         public override string ToString() => Value;
+
+        protected override IEnumerable<object> GetAtomicValues()
+        {
+            yield return Value;
+        }
     }
 }
